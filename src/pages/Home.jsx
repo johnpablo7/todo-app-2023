@@ -26,7 +26,11 @@ export const Home = ({ searchValue }) => {
         <CreateTodoButton />
       </div>
 
-      <CardTodo searchedTodos={searchedTodos} />
+      <CardTodo
+        searchedTodos={searchedTodos}
+        todos={todos}
+        setTodos={setTodos}
+      />
     </div>
   );
 };
