@@ -1,15 +1,22 @@
+import { useState } from "react";
 import { SidebarMenu } from "../components/SidebarMenu";
-import { Outlet } from "react-router-dom";
+import { Home } from "../pages/Home";
 
 export const Layout = () => {
+  const [searchValue, setSearchValue] = useState("");
+  console.log("searchValue:", searchValue);
+
   return (
     <div className="w-full min-h-screen grid grid-cols-5 gap-3">
       <div className="bg-white h-full p-8">
-        <SidebarMenu />
+        <SidebarMenu
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
       </div>
 
-      <main className="bg-blue-400 col-span-4 h-full p-8">
-        <Outlet />
+      <main className="bg-[#F7FAFB] col-span-4 h-full p-8">
+        <Home searchValue={searchValue} />
       </main>
     </div>
   );

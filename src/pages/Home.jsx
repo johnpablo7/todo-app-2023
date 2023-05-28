@@ -1,33 +1,32 @@
+import { useState } from "react";
+import { CardTodo } from "../components/CardTodo";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { TodoCounter } from "../components/TodoCounter";
-import { TodoItem } from "../components/TodoItem";
-import { TodoList } from "../components/TodoList";
-import { TodoSearch } from "../components/TodoSearch";
+import { defaultTodos } from "../data/defaultTodos";
 
-const defaultTodos = [
-  { text: "Cortar cebolla", completed: true },
-  { text: "Tomar el Curso de React", completed: false },
-  { text: "Llorar", completed: false },
-  { text: "lalala", completed: false },
-];
+export const Home = ({ searchValue }) => {
+  const [todos, setTodos] = useState(defaultTodos);
 
-export const Home = () => {
+  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const totalTodos = todos.length;
+
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
+  });
+
   return (
-    <>
-      <TodoCounter completed={16} total={25} />
-      <TodoSearch />
+    <div>
+      <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col gap-1">
+          <TodoCounter completed={completedTodos} total={totalTodos} />
+          <p className="text-[#6B6D78]">Today is Saturday, 27 May 2023</p>
+        </div>
+        <CreateTodoButton />
+      </div>
 
-      <TodoList>
-        {defaultTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-          />
-        ))}
-      </TodoList>
-
-      <CreateTodoButton />
-    </>
+      <CardTodo searchedTodos={searchedTodos} />
+    </div>
   );
 };

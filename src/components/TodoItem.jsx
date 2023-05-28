@@ -1,11 +1,7 @@
 export const TodoItem = (props) => {
   return (
-    <div>
-      <li>
-        <span>V</span>
-        <p>{props.text}</p>
-        <span>X</span>
-      </li>
+    <div className="text-white text-xl font-semibold mb-6">
+      <p>{props.text}</p>
     </div>
   );
 };
