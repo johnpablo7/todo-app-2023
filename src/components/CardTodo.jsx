@@ -5,19 +5,19 @@ import { TodoItem } from "./TodoItem";
 
 // import { defaultTodos } from "../data/defaultTodos";
 
-export const CardTodo = ({ searchedTodos, todos, setTodos }) => {
+export const CardTodo = ({ searchedTodos, todos, saveTodos }) => {
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const deleteTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   return (

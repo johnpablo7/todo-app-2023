@@ -1,11 +1,14 @@
-import { useState } from "react";
 import { CardTodo } from "../components/CardTodo";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { TodoCounter } from "../components/TodoCounter";
-import { defaultTodos } from "../data/defaultTodos";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+// import { defaultTodos } from "../data/defaultTodos";
+
+// localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos));
+// localStorage.removeItem("TODOS_V1");
 
 export const Home = ({ searchValue }) => {
-  const [todos, setTodos] = useState(defaultTodos);
+  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -29,7 +32,7 @@ export const Home = ({ searchValue }) => {
       <CardTodo
         searchedTodos={searchedTodos}
         todos={todos}
-        setTodos={setTodos}
+        saveTodos={saveTodos}
       />
     </div>
   );
