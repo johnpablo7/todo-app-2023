@@ -1,11 +1,20 @@
 // import { useState } from "react";
 import { CompletedTodoButton } from "./CompletedTodoButton";
 import { DeleteTodoButton } from "./DeleteTodoButton";
+import { EmptyTodos } from "./EmptyTodos";
 import { TodoItem } from "./TodoItem";
+import { TodosError } from "./TodosError";
+import { TodosLoading } from "./TodosLoading";
 
 // import { defaultTodos } from "../data/defaultTodos";
 
-export const CardTodo = ({ searchedTodos, todos, saveTodos }) => {
+export const CardTodo = ({
+  searchedTodos,
+  todos,
+  saveTodos,
+  loading,
+  error,
+}) => {
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
@@ -22,6 +31,10 @@ export const CardTodo = ({ searchedTodos, todos, saveTodos }) => {
 
   return (
     <div className="grid grid-cols-4 gap-6">
+      {loading && <TodosLoading cards={16} />}
+      {error && <TodosError />}
+      {!loading && searchedTodos.length === 0 && <EmptyTodos />}
+
       {searchedTodos.map((todo) => (
         <div
           key={todo.text}
