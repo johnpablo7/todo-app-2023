@@ -1,4 +1,5 @@
-// import { useState } from "react";
+import { useContext } from "react";
+import { TodoContext } from "../context";
 import { CompletedTodoButton } from "./CompletedTodoButton";
 import { DeleteTodoButton } from "./DeleteTodoButton";
 import { EmptyTodos } from "./EmptyTodos";
@@ -6,28 +7,9 @@ import { TodoItem } from "./TodoItem";
 import { TodosError } from "./TodosError";
 import { TodosLoading } from "./TodosLoading";
 
-// import { defaultTodos } from "../data/defaultTodos";
-
-export const CardTodo = ({
-  searchedTodos,
-  todos,
-  saveTodos,
-  loading,
-  error,
-}) => {
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
-  };
-
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
+export const CardTodo = () => {
+  const { loading, error, searchedTodos, completeTodo, deleteTodo } =
+    useContext(TodoContext);
 
   return (
     <div className="grid grid-cols-4 gap-6">

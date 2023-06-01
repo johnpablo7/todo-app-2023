@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { TodoContext } from "../context";
 import SearchIcon from "../svg/SearchIcon";
 
-export const TodoSearch = ({ searchValue, setSearchValue }) => {
+export const TodoSearch = () => {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
+
   return (
     <div className="relative mb-6">
       <SearchIcon className="absolute top-4 left-4" />

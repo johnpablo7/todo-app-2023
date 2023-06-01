@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 
+// import { defaultTodos } from "../data/defaultTodos";
+
+// localStorage.removeItem("TODOS_V1");
+// localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos));
+
 export const useLocalStorage = (itemName, initialValue) => {
   const [item, setItem] = useState(initialValue);
   const [loading, setLoading] = useState(true);
