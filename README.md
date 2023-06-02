@@ -1,7 +1,7 @@
 # TODO-APP-2023
 
 ## Primeros pasos para empezar la aplicación
-Para empezar este repositorio debes de clonar con (git clone), instalar sus dependencias (npm install) y ejecutar la aplicación (npm run dev).
+Para empezar este repositorio debes de clonar con (git clone), instalar sus dependencias (npm install) y ejecutar la aplicación con (npm run dev).
 
 ## Descripcion
 
