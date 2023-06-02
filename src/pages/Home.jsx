@@ -1,8 +1,14 @@
+import { useContext } from "react";
+import { TodoContext } from "../context";
 import { CardTodo } from "../components/CardTodo";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { TodoCounter } from "../components/TodoCounter";
+import { Modal } from "../modal";
+import { TodoForm } from "../components/TodoForm";
 
 export const Home = () => {
+  const { openModal } = useContext(TodoContext);
+
   return (
     <div>
       <div className="flex items-center justify-between mb-12">
@@ -12,6 +18,12 @@ export const Home = () => {
         </div>
         <CreateTodoButton />
       </div>
+
+      {openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
 
       <CardTodo />
     </div>

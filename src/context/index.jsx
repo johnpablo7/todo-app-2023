@@ -14,6 +14,8 @@ export const TodoProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   // console.log("searchValue:", searchValue);
 
+  const [openModal, setOpenModal] = useState(false);
+
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
@@ -22,6 +24,12 @@ export const TodoProvider = ({ children }) => {
     const searchText = searchValue.toLowerCase();
     return todoText.includes(searchText);
   });
+
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({ text, completed: false });
+    saveTodos(newTodos);
+  };
 
   const completeTodo = (text) => {
     const newTodos = [...todos];
@@ -51,6 +59,9 @@ export const TodoProvider = ({ children }) => {
         deleteTodo,
         todos,
         saveTodos,
+        openModal,
+        setOpenModal,
+        addTodo,
       }}
     >
       {children}
