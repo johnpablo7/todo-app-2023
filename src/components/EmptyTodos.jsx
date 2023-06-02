@@ -1,3 +1,3 @@
 export const EmptyTodos = () => {
-  return <div>EmptyTodos</div>;
+  return <div>None found All</div>;
 };

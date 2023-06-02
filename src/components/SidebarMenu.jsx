@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { links } from "../data/icons";
 import { TodoSearch } from "./TodoSearch";
+import appLogo from "../assets/logo.png";
 
 export const SidebarMenu = () => {
   return (
     <div>
-      <img src="/images/logo.png" alt="logo" className="pb-16" />
+      <img src={appLogo} alt="logo" className="pb-16" />
       <TodoSearch />
       <nav>
         <ul>
