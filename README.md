@@ -1,10 +1,7 @@
 # TODO-APP-2023
 
-## Curso de React.js
-
-Profesor: JuanDC
-
-https://platzi.com/cursos/react/
+## First steps to start the application
+Para empezar este repositorio debes de clonar con (git clone), instalar sus dependencias (npm install) y ejecutar la aplicación (npm run dev).
 
 ## Descripcion
 
@@ -16,7 +13,7 @@ Este proyecto es un sitio web donde puedes hacer ToDo's, esta hecho con tecnolog
 - Filtrar ToDo's por su titulo o su estado (completado, pendiente).
 - Local Storage (Los ToDo's creados y modificados se guardan cuando se cierra la pagina).
 
-Para el proyecto se utilizo React para la organizacion de componentes con uso de useState, useEffect, useContext, entre otras funcionalidades de la libreria y Tailwindcss para facilitar el diseño de la página web.
+Para el proyecto se utilizo React con vite para la organizacion de componentes con uso de useState, useEffect, useContext, entre otras funcionalidades de la libreria y Tailwindcss para facilitar el diseño de la página web.
 
 ## Despliegue
 
